@@ -16,6 +16,7 @@ namespace TourismAppp.Data
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<User>().Wait();
+            _database.CreateTableAsync<Vacation>().Wait();
         }
 
         public Task<List<User>> GetUsersAsync()
@@ -87,5 +88,44 @@ namespace TourismAppp.Data
             await SaveUserAsync(newUser);
             return true; // Registration successful
         }
+
+        // Vacation methods
+        public Task<List<Vacation>> GetVacationsAsync()
+        {
+            return _database.Table<Vacation>().ToListAsync();
+        }
+
+        public Task<Vacation> GetVacationAsync(int id)
+        {
+            return _database.Table<Vacation>()
+                            .Where(i => i.VacationID == id)
+                            .FirstOrDefaultAsync();
+        }
+
+        public Task<int> SaveVacationAsync(Vacation vacation)
+        {
+            if (vacation.VacationID != 0)
+            {
+                return _database.UpdateAsync(vacation);
+            }
+            else
+            {
+                return _database.InsertAsync(vacation);
+            }
+        }
+
+        public Task<int> DeleteVacationAsync(Vacation vacation)
+        {
+            return _database.DeleteAsync(vacation);
+        }
+
+        Task<List<Vacation>> GetVacationsByLocationAsync(string location)
+        {
+            return _database.Table<Vacation>()
+                            .Where(v => v.Location == location)
+                            .ToListAsync();
+        }
+
+
     }
 }
