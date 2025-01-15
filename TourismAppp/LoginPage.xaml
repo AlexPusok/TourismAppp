@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TourismAppp.LoginPage"
+             Title="LoginPage">
+    <StackLayout Padding="20" Spacing="15">
+        <!-- Title -->
+        <Label Text="Login"
+               FontSize="32"
+               HorizontalOptions="Center" />
+
+        <!-- Username -->
+        <Entry x:Name="UsernameEntry"
+               Placeholder="Username"
+               Keyboard="Default"
+               MaxLength="100" />
+
+        <!-- Password -->
+        <Entry x:Name="PasswordEntry"
+               Placeholder="Password"
+               IsPassword="True"
+               MaxLength="255" />
+
+        <!-- Login Button -->
+        <Button Text="Login"
+                Clicked="OnLoginClicked" />
+
+        <!-- Register Button (For new users) -->
+        <Button Text="Register"
+                Clicked="OnRegisterClicked" />
+    </StackLayout>
+</ContentPage>
