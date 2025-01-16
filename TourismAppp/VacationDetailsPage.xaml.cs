@@ -27,6 +27,12 @@ public partial class VacationDetailsPage : ContentPage
         DurationLabel.Text = $"{_vacation.DurationDays} days";
         StartDateLabel.Text = _vacation.StartDate.ToString("MMMM dd, yyyy");
         EndDateLabel.Text = _vacation.EndDate.ToString("MMMM dd, yyyy");
+
+        if (_user.Role == "Agent")
+        {
+            EditButton.IsVisible = true;
+            DeleteButton.IsVisible = true;
+        }
     }
 
     private async void OnGoBackClicked(object sender, EventArgs e)

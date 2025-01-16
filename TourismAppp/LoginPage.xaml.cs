@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Maui.Controls;
+using Plugin.LocalNotification;
 using TourismAppp.Data;
 using TourismAppp.Models;
 
@@ -30,6 +31,12 @@ public partial class LoginPage : ContentPage
         if (user != null && user.Password == password)
         {
             await DisplayAlert("Success", "Login successful", "OK");
+            var request = new NotificationRequest
+            {
+                Title = "Welcome to TourismApp",
+                Description = "Welcome to TourismApp, " + user.Username + ". You are logged in as " + user.Role,  
+            };
+            LocalNotificationCenter.Current.Show(request);
             await Navigation.PushAsync(new HomePage(user));
         }
         else
