@@ -17,6 +17,7 @@ namespace TourismAppp.Data
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<User>().Wait();
             _database.CreateTableAsync<Vacation>().Wait();
+            _database.CreateTableAsync<Booking>().Wait();
         }
 
         public Task<List<User>> GetUsersAsync()
@@ -123,6 +124,45 @@ namespace TourismAppp.Data
         {
             return _database.Table<Vacation>()
                             .Where(v => v.Location == location)
+                            .ToListAsync();
+        }
+
+
+        //Booking Methods
+
+        public Task<List<Booking>> GetBookingsAsync()
+        {
+            return _database.Table<Booking>().ToListAsync();
+        }
+
+        public Task<Booking> GetBookingAsync(int id)
+        {
+            return _database.Table<Booking>()
+                            .Where(i => i.BookingID == id)
+                            .FirstOrDefaultAsync();
+        }
+
+        public Task<int> SaveBookingAsync(Booking booking)
+        {
+            if (booking.BookingID != 0)
+            {
+                return _database.UpdateAsync(booking);
+            }
+            else
+            {
+                return _database.InsertAsync(booking);
+            }
+        }
+
+        public Task<int> DeleteBookingAsync(Booking booking)
+        {
+            return _database.DeleteAsync(booking);
+        }
+
+        public Task<List<Booking>> GetBookingsByUserAsync(int userID)
+        {
+            return _database.Table<Booking>()
+                            .Where(b => b.UserID == userID)
                             .ToListAsync();
         }
 

@@ -36,7 +36,7 @@ public partial class HomePage : ContentPage
     private async void OnVacationSelected(object sender, SelectedItemChangedEventArgs e)
     {
         Vacation vacation = e.SelectedItem as Vacation;
-        await Navigation.PushAsync(new VacationDetailsPage(vacation));
+        await Navigation.PushAsync(new VacationDetailsPage(vacation, _currentUser));
     }
 
     private async void OnAddVacationClicked(object sender, EventArgs e)

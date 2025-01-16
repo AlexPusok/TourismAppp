@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TourismAppp.EditVacationPage"
+             Title="EditVacationPage">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Edit Vacation" FontSize="24" HorizontalOptions="Center" />
+
+            <Entry x:Name="TitleEntry" Placeholder="Vacation Title" />
+            <Entry x:Name="DescriptionEntry" Placeholder="Description" />
+            <Entry x:Name="LocationEntry" Placeholder="Location" />
+            <Entry x:Name="PriceEntry" Placeholder="Price" Keyboard="Numeric" />
+            <Entry x:Name="DurationDaysEntry" Placeholder="Duration (Days)" Keyboard="Numeric" />
+            <DatePicker x:Name="StartDatePicker" />
+            <DatePicker x:Name="EndDatePicker" />
+
+            <Button Text="Save Changes" Clicked="OnSaveChangesClicked" BackgroundColor="Green" TextColor="White"/>
+            <Button Text="Cancel" Clicked="OnCancelClicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

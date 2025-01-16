@@ -28,6 +28,9 @@
             <Label Text="End Date:" FontAttributes="Bold" />
             <Label x:Name="EndDateLabel" FontSize="18" />
 
+            <Button Text="Edit Vacation" Clicked="OnEditVacationClicked" BackgroundColor="LightBlue"/>
+            <Button Text="Delete Vacation" Clicked="OnDeleteVacationClicked" BackgroundColor="Red" TextColor="White"/>
+            <Button Text="Book Now" Clicked="OnBookNowClicked" />
             <Button Text="Go Back" Clicked="OnGoBackClicked" />
         </StackLayout>
     </ScrollView>
