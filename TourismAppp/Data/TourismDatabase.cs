@@ -151,8 +151,11 @@ namespace TourismAppp.Data
             else
             {
                 return _database.InsertAsync(booking);
+                
             }
         }
+
+        
 
         public Task<int> DeleteBookingAsync(Booking booking)
         {

@@ -3,6 +3,7 @@ using TourismAppp.Models;
 using System.Collections.Generic;
 using Microsoft.Maui.Controls;
 using System.Threading.Tasks;
+using Plugin.LocalNotification;
 
 
 namespace TourismAppp;
@@ -26,6 +27,14 @@ public partial class HomePage : ContentPage
             AddVacationButton.IsVisible = true;
             ViewAllBookingsButton.IsVisible = true;
         }
+
+        var request = new NotificationRequest
+        {
+            Title = "Welcome to TourismApp",
+            Description = "Welcome to TourismApp, " + _currentUser.Username + ". You are logged in as " + _currentUser.Role,
+
+        };
+        LocalNotificationCenter.Current.Show(request);
     }
 
     private async void LoadVacations()

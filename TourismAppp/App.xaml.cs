@@ -26,5 +26,7 @@ namespace TourismAppp
 
             MainPage = new NavigationPage(new LoginPage());
         }
+
+
     }
 }
