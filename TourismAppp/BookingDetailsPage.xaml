@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TourismAppp.BookingDetailsPage"
+             Title="BookingDetailsPage">
+    <StackLayout Padding="20">
+        <Label Text="Vacation Title" FontSize="18" FontAttributes="Bold"/>
+        <Label x:Name="TitleLabel" FontSize="16"/>
+
+        <Label Text="Location" FontSize="18" FontAttributes="Bold"/>
+        <Label x:Name="LocationLabel" FontSize="16"/>
+
+        <Label Text="Start Date" FontSize="18" FontAttributes="Bold"/>
+        <Label x:Name="StartDateLabel" FontSize="16"/>
+
+        <Label Text="End Date" FontSize="18" FontAttributes="Bold"/>
+        <Label x:Name="EndDateLabel" FontSize="16"/>
+
+        <Label Text="Number of People" FontSize="18" FontAttributes="Bold"/>
+        <Label x:Name="NumberOfPeopleLabel" FontSize="16"/>
+
+        <Label Text="Status" FontSize="18" FontAttributes="Bold"/>
+        <Label x:Name="StatusLabel" FontSize="16" TextColor="Blue"/>
+
+        <Button x:Name="ConfirmBookingButton"
+        Text="Confirm Booking"
+        IsVisible="False"  
+        Clicked="OnConfirmBookingClicked"/>
+
+            <Button Text="Cancel Booking" BackgroundColor="Red" TextColor="White" Clicked="OnCancelBookingClicked"/>
+    </StackLayout>
+</ContentPage>

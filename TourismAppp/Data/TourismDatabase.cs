@@ -166,6 +166,17 @@ namespace TourismAppp.Data
                             .ToListAsync();
         }
 
+        public Task<List<Booking>> GetAllBookingsAsync()
+        {
+            return _database.Table<Booking>().ToListAsync();
+        }
+
+        public Task<int> UpdateBookingAsync(Booking booking)
+        {
+            return _database.UpdateAsync(booking);
+        }
+
+
 
     }
 }

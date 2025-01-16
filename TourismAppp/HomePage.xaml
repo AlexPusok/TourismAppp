@@ -13,6 +13,15 @@
         IsVisible="False" 
         Clicked="OnAddVacationClicked" />
 
+        <Button Text="My Bookings" Clicked="OnMyBookingsClicked" />
+
+        <Button x:Name="ViewAllBookingsButton"
+        Text="View All Bookings"
+        IsVisible="False"  
+        Clicked="OnViewAllBookingsClicked"/>
+
+
+
             <!-- ListView to display vacations -->
         <ListView x:Name="VacationsListView"
                   ItemSelected="OnVacationSelected">

@@ -24,6 +24,7 @@ public partial class HomePage : ContentPage
         if (_currentUser.Role == "Agent")
         {
             AddVacationButton.IsVisible = true;
+            ViewAllBookingsButton.IsVisible = true;
         }
     }
 
@@ -43,5 +44,16 @@ public partial class HomePage : ContentPage
     {
         await Navigation.PushAsync(new AddVacationPage());
     }
+
+    private async void OnMyBookingsClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MyBookingsPage(_currentUser));
+    }
+
+    private async void OnViewAllBookingsClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AllBookingsPage(_currentUser));
+    }
+
 
 }
